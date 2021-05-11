@@ -17,7 +17,6 @@ public class Movie {
     private String genre;
     @Column(name = "description")
     private String description;
-    @Lob
     @Column(name = "movieImage",length = 64)
     private String movieImage;
     @Column(name = "languages")
@@ -110,6 +109,13 @@ public class Movie {
 
     public void setActors(String actors) {
         this.actors = actors;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (movieImage == null || id == null) return null;
+
+        return "/movie-images/" + id + "/" + movieImage;
     }
 }
 

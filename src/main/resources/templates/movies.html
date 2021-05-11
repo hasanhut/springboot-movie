@@ -47,7 +47,9 @@
                     <td th:text="${movie.year}"></td>
                     <td th:text="${movie.genre}"></td>
                     <td th:text="${movie.description}"></td>
-                    <td th:text="${movie.movieImage}"></td>
+                    <td>
+                        <img th:src="@{${movie.photosImagePath}}" />
+                    </td>
                     <td th:text="${movie.languages}"></td>
                     <td th:text="${movie.actors}"></td>
                     <td>
@@ -56,6 +58,7 @@
                     </td>
                 </tr>
             </tbody>
+
         </table>
     </div>
 </body>

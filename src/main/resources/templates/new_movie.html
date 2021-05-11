@@ -11,12 +11,12 @@
       <hr>
       <h2>Save Movie</h2>
 
-      <form action="#" th:action="@{/saveMovie}" th:object="${movie}" method="post">
+      <form th:action="@{/saveMovie}" th:object="${movie}" method="post" enctype="multipart/form-data">
           <input type="text" th:field="*{name}" placeholder="Movie Name" class="form-control mb-4 col-4">
           <input type="text" th:field="*{year}" placeholder="Movie year" class="form-control mb-4 col-4">
           <input type="text" th:field="*{genre}" placeholder="Movie Genre" class="form-control mb-4 col-4">
           <input type="text" th:field="*{description}" placeholder="Movie Description" class="form-control mb-4 col-4">
-          <input type="file" name="image" accept="image/png, image/jpeg" th:field="*{movieImage}" placeholder="Movie Image" class="form-control mb-4 col-4">
+          <input type="file" name="image" accept="image/png, image/jpeg" placeholder="Movie Image" class="form-control mb-4 col-4">
           <input type="text" th:field="*{languages}" placeholder="Movie Languages" class="form-control mb-4 col-4">
           <input type="text" th:field="*{actors}" placeholder="Movie Actors" class="form-control mb-4 col-4">
           <button type="submit" class="btn btn-info col-2">Save Movie</button>
