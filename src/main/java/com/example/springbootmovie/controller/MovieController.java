@@ -2,6 +2,7 @@ package com.example.springbootmovie.controller;
 
 
 import com.example.springbootmovie.model.Movie;
+import com.example.springbootmovie.service.ActorService;
 import com.example.springbootmovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,12 +23,12 @@ import java.nio.file.StandardCopyOption;
 @Controller
 public class MovieController {
     private final MovieService movieService;
-
-    private final String UPLOAD_DIR = "./uploads/";
+    private final ActorService actorService;
 
     @Autowired
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, ActorService actorService) {
         this.movieService = movieService;
+        this.actorService = actorService;
     }
 
     @GetMapping("/")
@@ -38,6 +38,7 @@ public class MovieController {
         }
         else{
             model.addAttribute("movies",movieService.getMovies());
+            model.addAttribute("actors",actorService.getActors());
         }
         return "movies";
     }
