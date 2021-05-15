@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MOVIE</title>
+    <title>New Movie</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
@@ -18,20 +18,15 @@
           <input type="text" th:field="*{description}" placeholder="Movie Description" class="form-control mb-4 col-4">
           <input required type="file" name="image" accept="image/png, image/jpeg" placeholder="Movie Image" class="form-control mb-4 col-4">
           <input type="text" th:field="*{languages}" placeholder="Movie Languages" class="form-control mb-4 col-4">
-          <!--<div>
-              <table class="table table-striped table-responsive-md">
-                  <tbody>
-                  <tr th:each="actor:${actors}">
-                      <td th:text="${actor.id}"></td>
-                      <td th:text="${actor.name}"></td>
-                  </tr>
-                  </tbody>
-
-              </table>
-          </div>-->
+          <label>Movie Actors:</label>
+          <select class="form-control" th:field="*{actors}" multiple="multiple">
+              <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
+          </select>
+          <br>
+          <br>
           <button type="submit" class="btn btn-info col-2">Save Movie</button>
       </form>
-      
+
   </div>
 </body>
 </html>

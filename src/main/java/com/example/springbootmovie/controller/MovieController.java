@@ -1,6 +1,7 @@
 package com.example.springbootmovie.controller;
 
 
+import com.example.springbootmovie.model.Actor;
 import com.example.springbootmovie.model.Movie;
 import com.example.springbootmovie.service.ActorService;
 import com.example.springbootmovie.service.MovieService;
@@ -18,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 
 @Controller
@@ -40,13 +42,15 @@ public class MovieController {
             model.addAttribute("movies",movieService.getMovies());
             model.addAttribute("actors",actorService.getActors());
         }
-        return "movies";
+        return "menu";
     }
 
     @GetMapping("/addNewMovie")
     public String addNewMovie(Model model){
         Movie movie = new Movie();
+        List<Actor> actors = actorService.getActors();
         model.addAttribute("movie",movie);
+        model.addAttribute("actors",actors);
         return "new_movie";
     }
 

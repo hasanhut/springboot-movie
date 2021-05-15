@@ -14,6 +14,6 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
     @Query(value = "SELECT * FROM movie.movies ORDER BY year",nativeQuery = true)
     List<Movie> findAll();
 
-    @Query(value="SELECT * FROM movie.movies WHERE name /*like %:keyword% or actors*/ like %:keyword% or genre like %:keyword%",nativeQuery = true)
+    @Query(value="SELECT * FROM movie.movies WHERE name like %:keyword%  or genre like %:keyword%",nativeQuery = true)
     List<Movie> findByKeyword(@Param("keyword") String keyword);
 }

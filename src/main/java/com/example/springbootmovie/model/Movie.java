@@ -9,6 +9,7 @@ import java.util.List;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
     @Column(length = 45,nullable = false)
     private String name;
@@ -22,14 +23,18 @@ public class Movie {
     private String movieImage;
     @Column(name = "languages")
     private String languages;
-
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "movies_actors",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    private List<Actor> actors = new ArrayList<>();
 
     public Movie() {
 
     }
 
-    public Movie(Integer id, String name, Integer year, String genre, String description, String movieImage, String languages) {
+    public Movie(Integer id, String name, Integer year, String genre, String description, String movieImage, String languages, List<Actor> actors) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -37,6 +42,7 @@ public class Movie {
         this.description = description;
         this.movieImage = movieImage;
         this.languages = languages;
+        this.actors = actors;
     }
 
     public Integer getId() {
@@ -93,6 +99,14 @@ public class Movie {
 
     public void setLanguages(String languages) {
         this.languages = languages;
+    }
+
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
     }
 
     @Transient
