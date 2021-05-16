@@ -16,13 +16,25 @@ public class Actor {
     private int id;
     @Column(length = 45, nullable = false)
     private String name;
+    @ManyToMany(mappedBy = "actors", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Movie> movies = new ArrayList<>();
+
 
     public Actor() {
     }
 
-    public Actor(int id, String name) {
+    public Actor(int id, String name, List<Movie> movies) {
         this.id = id;
         this.name = name;
+        this.movies = movies;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
     }
 
     public int getId() {

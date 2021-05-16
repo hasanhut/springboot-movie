@@ -23,7 +23,7 @@ public class Movie {
     private String movieImage;
     @Column(name = "languages")
     private String languages;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "movies_actors",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id")
