@@ -37,6 +37,7 @@ Password = admin
     spring.datasource.password=Sql12345
     spring.jpa.show-sql=true`
 	server.port = 8181
+[![MySql Table](https://github.com/hsnhutt/springboot-movie/blob/master/screenshots/5.png "MySql Table")](https://github.com/hsnhutt/springboot-movie/blob/master/screenshots/5.png "MySql Table")
 
 ### Running Examples
 - Download the zip or clone the Git repository.
