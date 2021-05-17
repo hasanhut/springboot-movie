@@ -18,9 +18,13 @@
           <input type="text" th:field="*{description}" placeholder="Movie Description" class="form-control mb-4 col-4">
           <input required type="file" name="image" accept="image/png, image/jpeg" placeholder="Movie Image" class="form-control mb-4 col-4">
           <input type="text" th:field="*{languages}" placeholder="Movie Languages" class="form-control mb-4 col-4">
-          <label>Movie Actors:</label>
+          <label>Movie Actors: (You can select more than one actor.)</label>
+          <br>
+          <label>For windows: Hold down the control (ctrl) button to select multiple options</label>
+          <br>
+          <label>For Mac: Hold down the command button to select multiple options</label>
           <select class="form-control" th:field="*{actors}" multiple="multiple">
-              <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
+              <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.name} +' '+ ${actor.surname}"></option>
           </select>
           <br>
           <br>

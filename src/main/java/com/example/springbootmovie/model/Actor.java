@@ -16,6 +16,8 @@ public class Actor {
     private int id;
     @Column(length = 45, nullable = false)
     private String name;
+    @Column(length = 45, nullable = false)
+    private String surname;
     @ManyToMany(mappedBy = "actors", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Movie> movies = new ArrayList<>();
 
@@ -23,9 +25,10 @@ public class Actor {
     public Actor() {
     }
 
-    public Actor(int id, String name, List<Movie> movies) {
+    public Actor(int id, String name, String surname, List<Movie> movies) {
         this.id = id;
         this.name = name;
+        this.surname = surname;
         this.movies = movies;
     }
 
@@ -53,5 +56,12 @@ public class Actor {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }
 

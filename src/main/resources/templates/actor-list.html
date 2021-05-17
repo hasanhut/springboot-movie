@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Actor List</title>
@@ -9,28 +9,24 @@
 <div>
   <h1>ACTOR LIST</h1>
   <a th:href="@{/}" class="btn btn-primary">Menu</a>
-  <a th:href="@{/addNewActor}" class="btn btn-primary">Add New Actor</a>
+  <a sec:authorize="hasRole('ADMIN')" th:href="@{/addNewActor}" class="btn btn-primary">Add New Actor</a>
   <table class="table table-striped table-responsive-md">
     <thead>
     <tr>
-      <th>ACTOR ID</th>
-      <th>ACTOR Name</th>
+      <th>Actor Id</th>
+      <th>Actor Name</th>
+      <th>Actor Surname</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="actor : ${actors}">
       <td th:text="${actor.id}"></td>
       <td th:text="${actor.name}"></td>
+      <td th:text="${actor.surname}"></td>
       <td>
-        <a th:href="@{/updateActor/{id}(id=${actor.id})}" class="btn btn-primary">Update</a>
-        <a th:href="@{/deleteActor/{id}(id=${actor.id})}" class="btn btn-danger">Delete</a>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/updateActor/{id}(id=${actor.id})}" class="btn btn-primary">Update</a>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/deleteActor/{id}(id=${actor.id})}" class="btn btn-danger">Delete</a>
       </td>
-      <!--<td>
-        <a th:href="@{/actor/edit/{id} (id=${actor.id})}">EDIT</a>
-      </td>
-      <td>
-        <a th:href="@{/actor/delete/{id} (id=${actor.id})}">DELETE</a>
-      </td>-->
     </tr>
     </tbody>
   </table>
