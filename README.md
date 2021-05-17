@@ -22,12 +22,12 @@ For building and running the application you need:
 [![Add Movie](https://github.com/hsnhutt/springboot-movie/blob/master/screenshots/4.png "Add Movie")](https://github.com/hsnhutt/springboot-movie/blob/master/screenshots/4.png "Add Movie")
 
 ## Login Info
-**For User**(can only see actors and movies. can not edit.):
-Username = user
+**For User**(can only see actors and movies, can not edit.):<br />
+Username = user<br />
 Password = password
 
-**For Admin**:
-Username = admin
+**For Admin**:<br />
+Username = admin<br />
 Password = admin
 
 ## MySql Info
