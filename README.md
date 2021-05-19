@@ -1,7 +1,7 @@
 # springboot-movie-app
 
 
-Minimal [Spring Boot](http://projects.spring.io/spring-boot/) Movie app.
+Minimal [Spring Boot](http://projects.spring.io/spring-boot/),[Thymeleaf](https://www.thymeleaf.org/) Movie app.
 
 ## Requirements
 
